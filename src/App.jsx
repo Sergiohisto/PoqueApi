@@ -1,45 +1,17 @@
-import { useState, useEffect } from "react";
 import Button from "./components/Button";
-import "./App.css";
+import "./sass/App.scss"
+import { TiArrowLeftOutline, TiArrowRightOutline } from "react-icons/ti";
+
 
 const App = () => {
-  let [pokemonNumber, setPokemonNumber] = useState(10);
-  let [pokemonName, setPokemonName] = useState("");
-
-  function increaseNumber() {
-    setPokemonNumber(pokemonNumber + 1);
-    console.log("valor antes del nuevo render:" + pokemonNumber);
-  }
-
-  useEffect(() => {
-    console.log("valor al actualizar el estado:" + pokemonNumber);
-    // aqui debemos llamar al API
-    //fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber}/`)
-    //.then((result) => result.json())
-    //.then((data) => setPokemonName(data.name));
-
-    searchPokemon(pokemonNumber);
-  }, [pokemonNumber]);
-
-  let searchPokemon = async (pokemonNumber) => {
-    const response = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${pokemonNumber}/`
-    );
-    const data = await response.json();
-    setPokemonName(data.name);
-  };
-
   return (
     <>
-      <button onClick={increaseNumber}>Next</button>
-      <div>
-        {pokemonNumber} - {pokemonName}{" "}
+
+        {/*tarjetas*/}
+      <div className="button-container">
+        <Button icon={<TiArrowLeftOutline/>} />
+        <Button icon={<TiArrowRightOutline/>} />
       </div>
-
-      <Button />
-      <Button />
-
-
     </>
   );
 };

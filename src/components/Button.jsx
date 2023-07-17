@@ -1,8 +1,11 @@
+import "../sass/Button.scss";
 
-const Button = () => {
+const Button = ({icon}) => {
   return (
-    <button>Button</button>
-  )
-}
+    <div className="button_box">
+      <button className="button">{icon}</button>
+    </div>
+  );
+};
 
-export default Button
+export default Button;
