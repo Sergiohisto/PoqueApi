@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import Button from "./components/Button";
 import "./App.css";
 
 const App = () => {
@@ -35,6 +35,11 @@ const App = () => {
       <div>
         {pokemonNumber} - {pokemonName}{" "}
       </div>
+
+      <Button />
+      <Button />
+
+
     </>
   );
 };
